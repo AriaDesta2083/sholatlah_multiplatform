@@ -1,8 +1,7 @@
-
-
-
 import 'package:flutter/material.dart';
-import 'features/home/presentation/pages/home_page.dart';
+
+import 'core/utils/app_routes.dart';
+import 'core/utils/route_names.dart';
 
 void main()=>runApp(SholatApp());
 
@@ -14,7 +13,13 @@ class SholatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      title: 'Sholat lah',
+      initialRoute: RouteNames.onboarding,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }
+
+
+// ! [PROJECTS]
+// https://excalidraw.com/#json=8I-LYoMXXpwN6miSINjnL,q7me5L7URcLoE4HfN3Xwkg
