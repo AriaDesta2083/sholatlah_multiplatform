@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:sholatlah/features/auth/presentation/widgets/text_title_widgets.dart';
+import 'package:sholatlah/core/utils/animation.dart';
+import 'package:sholatlah/features/auth/presentation/widgets/captions_onboarding.dart.dart';
+import '../../../../core/themes/my_themes.dart';
+import '../widgets/text_title_widgets.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -28,25 +31,37 @@ class _OnboardingPageState extends State<OnboardingPage> {
               decoration: BoxDecoration(
                   image:
                       DecorationImage(image: AssetImage('assets/images/onboarding_mosque.png'), fit: BoxFit.fitWidth)),
-              child: textTitle,
+              child: sholatlahText,
             ),
             CarouselSlider(
               items: [
-                Image.asset(
-                  'assets/images/welcome.png',
-                  height: 350,
+                CustomAnimation(
+                  delay: 1,
+                  child: Image.asset(
+                    'assets/images/welcome.png',
+                    height: 350,
+                  ),
                 ),
-                Image.asset(
-                  'assets/images/reading.png',
-                  height: 350,
+                CustomAnimation(
+                  delay: 1,
+                  child: Image.asset(
+                    'assets/images/reading.png',
+                    height: 350,
+                  ),
                 ),
-                Image.asset(
-                  'assets/images/bearish.png',
-                  height: 350,
+                CustomAnimation(
+                  delay: 1,
+                  child: Image.asset(
+                    'assets/images/bearish.png',
+                    height: 350,
+                  ),
                 ),
-                Image.asset(
-                  'assets/images/radio.png',
-                  height: 350,
+                CustomAnimation(
+                  delay: 1,
+                  child: Image.asset(
+                    'assets/images/radio.png',
+                    height: 350,
+                  ),
                 ),
               ],
               options: CarouselOptions(
@@ -61,11 +76,38 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               carouselController: _controller,
             ),
-            TextButton(
-              onPressed: () =>
-                  _controller.nextPage(),
-              child: Text('→',style: TextStyle(color: Colors.blue),),
-            )
+            SizedBox(
+              height: 40,
+            ),
+            CaptionOnBoarding(),
+            Spacer(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Row(
+                children: [
+                  TextButton(
+                    onPressed: () => _controller.previousPage(),
+                    child: Text(
+                      'Back',
+                      style: goldText,
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  TextButton(
+                    onPressed: () => _controller.nextPage(),
+                    child: Text(
+                      'Next',
+                      style: goldText,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),

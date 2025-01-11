@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Text textTitle = Text(
+Text sholatlahText = Text(
   'Sholatlah',
   style: TextStyle(
     fontFamily: 'Kamali',

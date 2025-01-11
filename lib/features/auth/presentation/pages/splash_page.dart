@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sholatlah/core/themes/my_themes.dart';
+import 'package:sholatlah/features/auth/presentation/widgets/text_title_widgets.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -8,6 +10,7 @@ class SplashPage extends StatelessWidget {
     final szHeight = MediaQuery.of(context).size.height;
     final szWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: grayColor,
       body: Stack(
         alignment: AlignmentDirectional.center,
         children: [
@@ -57,15 +60,7 @@ class SplashPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage('assets/images/splash_logo.png'), fit: BoxFit.fitWidth)),
               ),
-              Text(
-                'Sholatlah',
-                style: TextStyle(
-                  fontFamily: 'Kamali',
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xffE2BE7F),
-                ),
-              )
+              sholatlahText,
             ],
           ),
           Positioned(
